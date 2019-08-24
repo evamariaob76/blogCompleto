@@ -1,0 +1,32 @@
+<header>
+    <div class="d-flex justify-content-around  fixed-top navbar-light bg-dark shadow-lg p-3 mb-5 bg-dark rounded">
+
+        <div class="row">
+
+
+            <nav class="col d-flex justify-content-start  ">
+
+                <button type="button" (click)="Inicio();" class="btn btn-light btn-sm form-control mr-sm-2 p-2 text-dark" style="width:100%;margin: auto; font-size: 15px ">inicio</button>
+                <button type="button" class="btn btn-light btn-sm form-control mr-sm-2 p-2 text-dark" style="width:100%;margin: auto; font-size: 15px ">contacto</button>
+                <button type="button" (click)="Autenticarse();" class="btn btn-light btn-sm form-control mr-sm-2 p-2 text-dark" style="width:100%;margin: auto; font-size: 15px ">suscribirse</button>
+
+            </nav>
+
+
+            <div class="col-8">
+                <font style=" vertical-align:inherit ">
+                    <font style="vertical-align: inherit; " class="encabezado">Del IX al XXI</font>
+                </font>
+            </div>
+
+            <nav class="col d-flex justify-content-start ">
+                <input class="form-control mr-sm-2 p-2 " style="width:100%;margin: auto " type="search " placeholder="para buscar escribe y enter... " aria-label="Search " #buscarSitio (keyup.enter)="buscarSitios(buscarSitio.value); ">
+            </nav>
+        </div>
+
+
+
+    </div>
+
+
+</header>

@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+
+<div class="firmalar contenedor">
+    <div class="container">
+        <div class="row " *ngFor="let comercio of comercios">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="firma-card row">
+                    <div class="col-md-5 img-padding-no">
+                        <div class="firma-resim"> <img [src]="comercio.img" class="card-img-top img-thumbnail" [alt]="comercio.nombre">
+
+                            <a href="#">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="firma-aciklama card-body">
+                            <h4>{{comercio.nombre}}</h4>
+                            <ul class="yacht-info__list space-2">
+                                <li>
+                                    <i class="search-boat-icon fa search-captain vertical-align-mid"></i>
+                                    <span class="vertical-align-mid">Fecha de apertura: {{comercio.aparicion}}</span>
+                                </li>
+                                <li>
+                                    <i class="search-boat-icon fa search-captain vertical-align-mid"></i>
+                                    <span class="vertical-align-mid">Dirección:  {{comercio.direccion}},  {{comercio.cp}}</span>
+                                </li>
+                                <li>
+                                    <i class="search-boat-icon fa search-captain vertical-align-mid"></i>
+                                    <span class="vertical-align-mid">telefono</span>
+                                </li>
+                                <li>
+                                    <i class="search-boat-icon fa search-captain vertical-align-mid"></i>
+                                    <span class="vertical-align-mid"><a  href="" > ver más...</a></span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>

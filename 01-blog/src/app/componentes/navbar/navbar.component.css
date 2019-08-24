@@ -1,0 +1,33 @@
+#contenedor {
+    font-family: 'Montserrat';
+    background: #333;
+    color: white;
+    background: #252932;
+    z-index: 3;
+    margin: 0px;
+    position: fixed;
+    border: 1px solid red;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    height: 150px;
+}
+
+.row div[class*='col'] {
+    padding: 1px;
+    text-align: center;
+}
+
+.col-8 {
+    font-size: 40px;
+    width: 1300px;
+}
+
+.encabezado {
+    color: white;
+    text-shadow: white 0.1em 0.1em 0.2em
+}
+
+.col-2 {
+    width: 100px;
+}

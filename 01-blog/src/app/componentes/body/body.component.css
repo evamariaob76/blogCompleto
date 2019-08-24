@@ -1,0 +1,17 @@
+.card-title {
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+* {
+    font-family: 'Montserrat';
+}
+
+body {
+    padding-top: 50px;
+}
+
+
+/*  capa hover con la descripcion de cada miniatura */

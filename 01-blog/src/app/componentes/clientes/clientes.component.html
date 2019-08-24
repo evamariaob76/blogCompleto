@@ -1,0 +1,38 @@
+<div class=" contenedor card border-primary mb-3">
+    <div class="card-header">Suscriptores</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de suscriptores</h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" [routerLink]="['/clientes/form']">Crear cliente</button>
+        </div>
+        <div *ngIf="clientes?.length==0" class="alert alert-info">No hay registros ern la base de datos</div>
+        <table class="table table-striped" *ngIf="clientes?.length>0">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">email</th>
+                    <th scope="col">fecha</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes">
+                    <th scope="row">{{cliente.id}}</th>
+                    <td>{{cliente.username}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.apellido}}to</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.createAt}}</td>
+                    <td> <button class="btn btn-rounded btn-primary" [routerLink]="['/clientes/form', cliente.id]">Editar cliente</button>
+                    </td>
+                    <td> <button class="btn btn-rounded btn-danger" [routerLink]="['/autenticacion']" (click)='delete(cliente)'>Eliminar cliente</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
