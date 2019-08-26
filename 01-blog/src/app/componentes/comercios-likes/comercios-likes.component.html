@@ -1,0 +1,29 @@
+<div class=" contenedor card border-primary mb-3">
+    <div class="card-header">Likes de comercios</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado </h5>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Comercio</th>
+                    <th scope="col">Likes</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let comercioL of comercioLikes">
+                    <td>{{comercioL.id}}</td>
+                    <td>{{comercioL.nombre}}</td>
+                    <td>{{comercioL.likes}}</td>
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

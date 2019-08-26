@@ -46,34 +46,7 @@ export class AutenticacionComponent implements OnInit {
   ngOnInit() {
 
 }
-existeUsuario(control: FormControl): Promise <any>| Observable<any>{
 
-  let promesa = new Promise(
-                        ( resolve, reject)=>{
-      
-                  setTimeout( ()=>{
-                    if( control.value=== "eva"){
-                      resolve( {existe: true} )
-                    }
-  
-                    else{
-                      resolve( null )
-                    }
-                  },3000)
-                }
-                )
-                return promesa;
-
-  }
-/*noigual(control:FormControl):{[s:string:boolean]}{
-  let forma:any=this;
-  if(control.value!=FormArray.controls['username'].value){
-    return{
-      noiguales:true
-    }
-  }
-return null;
-}*/
 
 
 

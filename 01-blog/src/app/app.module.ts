@@ -40,6 +40,7 @@ import { AutenticacionComponent } from './componentes/autenticacion/autenticacio
 import { ProtegidaComponent } from './componentes/protegida/protegida.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { FormComponent } from './componentes/clientes/form.component';
+import { ComerciosLikesComponent } from './componentes/comercios-likes/comercios-likes.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { FormComponent } from './componentes/clientes/form.component';
     AutenticacionComponent,
     ProtegidaComponent,
     ClientesComponent,
-    FormComponent
+    FormComponent,
+    ComerciosLikesComponent
 
   ],
   imports: [

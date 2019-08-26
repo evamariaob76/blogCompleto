@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 import { onErrorResumeNext } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
+
 
 @Injectable()
-export class ComerciosService
-{
-    private comercios:Comercio[]=[
-        { id:0,
+export class ComerciosService {
+    private comercios: Comercio[] = [
+        { id: 0,
           nombre: "Restaurante Casa Pedro",
           resumen: "Es uno de los rincones gastronómicos de la villa, que ha sabido mantener en el tiempo los sabores de la vieja cocina castellana, y madrileña después, es Casa Pedro.",
           img: "assets/img/casaPedro/casaPedro.jpg",
@@ -99,7 +101,7 @@ export class ComerciosService
           nombre: "Restaurante Sobrino de Botín ",
           resumen: "Antonio González y José González heredaron el restaurante Sobrino de Botín (Cuchilleros, 17) de su padre,  que a su vez lo había heredado de su abuelo. Este se encargó de mantener todo como lo habían dejado los Botín, la familia francesa que le traspasó el negocio después de fundarlo en 1725 sobre una bodega del siglo XVII. Al no haber cambiado nunca de nombre ni de ubicación,  el Libro Guinness de los Récords les concedió el honor de reconocerlo como el restaurante más antiguo del mundo.",
           img: "assets/img/sobrino/Sobrino.jpg",
-          img1: "assets/img/sobrino/Sobrino1.jpg",
+          img1: 'assets/img/sobrino/Sobrino1.jpg',
           img2: "assets/img/sobrino/Sobrino2.jpg",
           aparicion: "1725",
           lat: 40.414417,
@@ -113,51 +115,54 @@ export class ComerciosService
                      
       }
       ];
-    constructor()
-    {
+    constructor(private router: Router) {
         console.log("servicio ok");
     }
-        getComercios(){
-          return this.comercios;
-        }
+    getComercios(){
+      return this.comercios;
+    }
 
-        getComercio (i: any){
-          return this.comercios[i];
+    getComercio (i: number){
+      return this.comercios[i];
 
+    }
+
+    buscarComercio(termino:string):Comercio[] {
+      let Comercios : Comercio[]= [];
+      termino=termino.toLowerCase();
+        for (let comercio of this.comercios) {
+              let nombre= comercio.nombre.toLocaleLowerCase();
+                      if(nombre.indexOf(termino)>=0)
+                      Comercios.push(comercio);
         }
-      buscarComercio(termino:string):Comercio[]{
-        let Comercios : Comercio[]= [];
-        termino=termino.toLowerCase();
-          for (let comercio of this.comercios){
-                let nombre= comercio.nombre.toLocaleLowerCase();
-                        if(nombre.indexOf(termino)>=0)
-                        Comercios.push(comercio);
-          }
       return Comercios;
-  }
+    }
 
 
-  buscarActividad(actividad:string):Comercio[]{
-    let Actividades : Comercio[]= [];
-    actividad=actividad.toLowerCase();
-      for (let comercio of this.comercios){
-            let act= comercio.actividad.toLocaleLowerCase();
-                    if(act.indexOf(actividad)>=0)
-                    Actividades.push(comercio);
-      }
-  return Actividades;
-}    
-
-
-verLikes(id: number){
-  let contador:number;
-
-  this.comercios[id].likes = this.comercios[id].likes + 1;
-  return this.comercios[id].likes;
-         }
+    buscarActividad(actividad:string):Comercio[]{
+      let Actividades : Comercio[]= [];
+      actividad=actividad.toLowerCase();
+        for (let comercio of this.comercios){
+              let act= comercio.actividad.toLocaleLowerCase();
+                      if(act.indexOf(actividad)>=0)
+                      Actividades.push(comercio);
+        }
+      return Actividades;
+    }    
   
- }
-    
+
+    verLikes(id: number){
+      return this.comercios[id].likes;
+    }
+  
+    getComercioNombre (i: number){
+      return this.comercios[i].nombre;
+    }
+    getComercioId (i: number) {
+      return this.comercios[i].id;
+    }
+ 
+}
     export interface Comercio{
         id:number;
         nombre: string;
