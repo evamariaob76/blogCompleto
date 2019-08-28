@@ -1,5 +1,0 @@
-package com.eva.blog.backend.model.dao;
-
-public interface IComercioJpa {
-
-}
