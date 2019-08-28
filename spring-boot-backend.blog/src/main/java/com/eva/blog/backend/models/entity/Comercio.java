@@ -1,24 +1,18 @@
 package com.eva.blog.backend.models.entity;
 
 import java.io.Serializable;
-import java.sql.Blob;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="comercios")
+@Table(name = "comercios")
 public class Comercio implements Serializable {
-
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long id;
@@ -26,12 +20,10 @@ public class Comercio implements Serializable {
 	@Column
 	private Long likes;
 
-	@Column(length = 100000)
+	@Column
 	private String nombre;
 	
-	@Lob @Basic(fetch = FetchType.LAZY)
-	@Column(columnDefinition = "text")
-	private String  resumen;
+	@Column(length = 100000)	private String  resumen;
 	
 	@Column
 	private String aparicion;
@@ -186,5 +178,6 @@ public class Comercio implements Serializable {
 		this.likes = likes;
 	}
 	private static final long serialVersionUID = 1L;
+
 
 }

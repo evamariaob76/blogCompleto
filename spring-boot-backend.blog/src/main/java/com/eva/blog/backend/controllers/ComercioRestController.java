@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -24,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eva.blog.backend.model.services.IComercioService;
-import com.eva.blog.backend.models.entity.Cliente;
 import com.eva.blog.backend.models.entity.Comercio;
 
 @CrossOrigin(origins={"http://localhost:4200"})
@@ -39,6 +40,13 @@ public class ComercioRestController {
 		return comercioService.findAll();
 		
 	}
+	
+	@GetMapping("/comercios/page/{page}")
+	public Page<Comercio> index(@PathVariable Integer page){
+		Pageable pageable = PageRequest.of(page, 5);
+		return comercioService.findAll(pageable);
+		
+	}
 	@GetMapping("/comercios/{nombre}/busqueda")
 	public  List<Comercio>  findByName(@PathVariable String nombre) {
 		return comercioService.findByName(nombre);	
@@ -46,7 +54,7 @@ public class ComercioRestController {
 	}
 	
 	@GetMapping("/comercios/{id}")
-	public ResponseEntity<?> findById(@PathVariable Long id) {
+	public ResponseEntity<?> show(@PathVariable Long id) {
 		Comercio comercio= null;
 		Map<String, Object> response = new HashMap<>();
 	
@@ -70,10 +78,6 @@ public class ComercioRestController {
 		return new ResponseEntity(comercio, HttpStatus.OK);
 	}
 	
-
-	
-	
-	
 	@PostMapping("/comercios/{id}/likes")
 	public ResponseEntity<?> addLike(@PathVariable Long id) {
 		
@@ -91,9 +95,6 @@ public class ComercioRestController {
 		response.put("comercio", comercio);
 		return new ResponseEntity<Comercio>(comercio, HttpStatus.OK);
 	}
-	
-	
-	
 	
 	@PostMapping("/comercios")
 	public ResponseEntity<?> create(@Valid @RequestBody Comercio comercio, BindingResult result) {
@@ -122,8 +123,8 @@ public class ComercioRestController {
 		
 		response.put("mensaje", "El comercio ha sido creado con éxito!");
 		response.put("comercio", comercioNew);
-		//return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
-		return new ResponseEntity<Comercio>(comercioNew, HttpStatus.CREATED);
+		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+		//return new ResponseEntity<Comercio>(comercioNew, HttpStatus.CREATED);
 	}
 	
 	

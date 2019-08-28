@@ -21,9 +21,7 @@ public class Cliente implements Serializable {
 
 
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
-
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable=false, unique= true)
@@ -58,7 +56,7 @@ public class Cliente implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column(name="nombre")
+
 	public String getNombre() {
 		return nombre;
 	}

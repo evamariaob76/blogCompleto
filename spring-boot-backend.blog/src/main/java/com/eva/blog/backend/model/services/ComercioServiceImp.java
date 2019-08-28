@@ -2,24 +2,19 @@ package com.eva.blog.backend.model.services;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eva.blog.backend.model.dao.IComercioDao;
+import com.eva.blog.backend.models.entity.Cliente;
 import com.eva.blog.backend.models.entity.Comercio;
 
 @Service
 public class ComercioServiceImp implements IComercioService {
 	
-	//private static final Comercio Comercio = null;
 	@Autowired
 	private IComercioDao comercioDao;
 	
@@ -29,6 +24,12 @@ public class ComercioServiceImp implements IComercioService {
 		return (List<Comercio>) comercioDao.findAll();
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+
+	public Page<Comercio> findAll(Pageable pageable) {
+		return comercioDao.findAll(pageable);
+	}
 	@Override
 	@Transactional
 	public Comercio save(Comercio comercio) {
@@ -64,6 +65,5 @@ public class ComercioServiceImp implements IComercioService {
 		public List<Comercio> findByName(String nombre) {
 			return (List<Comercio>) comercioDao.findByName(nombre);
 		}
-	}
-	
+}
 
