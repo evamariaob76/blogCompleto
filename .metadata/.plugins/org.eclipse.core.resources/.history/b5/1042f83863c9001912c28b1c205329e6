@@ -1,0 +1,24 @@
+package com.eva.blog.backend.model.services;
+
+import java.util.List;
+
+import org.apache.catalina.User;
+import org.springframework.data.jpa.repository.Query;
+
+import com.eva.blog.backend.models.entity.Comercio;
+
+public interface IComercioService {
+
+	public List<Comercio> findAll();
+
+	public Comercio save(Comercio comercio);
+
+	public Comercio findById(Long id);
+
+	public void delete(Long id);
+
+	public Comercio addLike(Long id);
+	
+    public List<Comercio> findByFirstName(String nombre);
+
+}

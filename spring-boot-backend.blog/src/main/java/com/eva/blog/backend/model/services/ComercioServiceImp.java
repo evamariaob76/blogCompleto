@@ -2,7 +2,14 @@ package com.eva.blog.backend.model.services;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +19,7 @@ import com.eva.blog.backend.models.entity.Comercio;
 @Service
 public class ComercioServiceImp implements IComercioService {
 	
+	//private static final Comercio Comercio = null;
 	@Autowired
 	private IComercioDao comercioDao;
 	
@@ -51,6 +59,11 @@ public class ComercioServiceImp implements IComercioService {
 		return comercio;
 	}
 	
+	@Override
+	@Transactional
+		public List<Comercio> findByName(String nombre) {
+			return (List<Comercio>) comercioDao.findByName(nombre);
+		}
+	}
 	
-}
 

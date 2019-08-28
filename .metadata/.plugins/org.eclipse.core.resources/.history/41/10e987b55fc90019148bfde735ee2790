@@ -1,0 +1,14 @@
+package com.eva.blog.backend.model.dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.eva.blog.backend.models.entity.Comercio;
+
+public interface IComercioJpa extends JpaRepository<Comercio, Long> {
+	 @Query("SELECT nombre FROM comercios")
+	 List<Comercio> findByFirstName(String nombre);
+
+}
