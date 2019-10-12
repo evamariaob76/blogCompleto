@@ -60,10 +60,25 @@ public class ComercioServiceImp implements IComercioService {
 		return comercio;
 	}
 	
+
 	@Override
 	@Transactional
 		public List<Comercio> findByName(String nombre) {
 			return (List<Comercio>) comercioDao.findByName(nombre);
 		}
+	
+	@Override
+	@Transactional
+	public Comercio addVisitas(Long id) {
+		// Rescatamos comercio de base de datos
+		Comercio comercio = this.findById(id);
+		// Actualizo el número de likes en memoria
+		comercio.setVisitas(comercio.getVisitas() + 1);
+		// Guardamos en base de datos
+		this.save(comercio);
+		return comercio;
+	}
+
 }
+
 

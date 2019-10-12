@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 
 import com.eva.blog.backend.models.entity.Comercio;
 
@@ -22,5 +23,7 @@ public interface IComercioService {
 	public Comercio addLike(Long id);
 	
 	public  List<Comercio> findByName(String nombre);
+	
+	public Comercio addVisitas (Long id);
 
 }
