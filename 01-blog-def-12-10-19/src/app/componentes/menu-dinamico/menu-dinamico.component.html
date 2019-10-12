@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-lg-12 ">
+            <div class="row titulo">
+                Que hacer...
+            </div>
+            <div class="row comercios" *ngFor="let comercio of comercios; let i=index ">
+                <div class="row" *ngIf="i<=5">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col lg-6">
+
+                                <img src="http://localhost:8080/api/descargas/img/{{comercio.img}}" class="card-img-top" alt="...">
+
+                            </div>
+
+                            <div class="col lg-6 menu">
+                                <div *ngIf="comercio.id==0">
+                                    en agosto...
+
+                                </div>
+                                <div *ngIf="comercio.id==1">
+                                    en septiembre...
+
+                                </div>
+                                <div *ngIf="comercio.id==2">
+                                    en octubre...
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

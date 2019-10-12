@@ -1,0 +1,16 @@
+.row {
+    height: 100px;
+    text-align: center;
+    color: #1D1936;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 10px;
+    padding-top: 40px;
+    border-top: 1px solid #abb2b9;
+    margin-top: 15px;
+}
+
+.resaltar {
+    font-size: 12px;
+    padding-left: 10px;
+    font-weight: bold;
+}

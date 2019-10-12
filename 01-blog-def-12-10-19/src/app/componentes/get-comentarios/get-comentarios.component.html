@@ -1,0 +1,41 @@
+<app-navbar>
+
+</app-navbar>
+
+
+<div class=" contenedor card bordes mb-3">
+    <h5>
+        <div class="card-header card-title cabecera">Comentarios de los comercios</div>
+    </h5>
+
+    <div class="card-body ">
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id Comercio</th>
+                    <th scope="col">Nombre Comercio</th>
+                    <th scope="col">Nombre Suscriptor</th>
+                    <th scope="col">Número de Comentario</th>
+                    <th scope="col">Comentarios</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let comentari of comentario">
+                    <td>{{comentari.id_comercio}}</td>
+                    <td>{{comercio.nombre}}</td>
+                    <td>{{comentari.nombre}}</td>
+                    <td>{{comentari.id}}</td>
+                    <td>{{comentari.comentario}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <app-paginator></app-paginator>
+
+    </div>
+</div>

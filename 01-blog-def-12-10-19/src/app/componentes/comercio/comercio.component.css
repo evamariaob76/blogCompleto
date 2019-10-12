@@ -1,0 +1,87 @@
+.card-title {
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+}
+
+* {
+    font-family: 'Amaranth', sans-serif;
+    text-align: justify;
+}
+
+div>img {
+    width: 100%;
+    height: 100%;
+}
+
+.actividad {
+    color: grey;
+}
+
+.main {
+    width: min-content;
+}
+
+.fa-asterisk {
+    font-size: 7px;
+}
+
+.wrapper {
+    background: white;
+    padding-top: 150px;
+    padding-left: 50px;
+}
+
+.fotoPrincipal {
+    padding-bottom: 40px;
+}
+
+.fa-heart {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+a {
+    padding-left: 10px
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+.fa-heart {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.fa-facebook-f,
+.fa-comment,
+.fa-heart {
+    font-size: 15px;
+    color: #B2BABB;
+}
+
+.social a {
+    padding-right: 6px;
+    color: #B2BABB;
+}
+
+.ver {
+    animation-duration: 3s;
+    animation-name: blur;
+    animation-iteration-count: 1;
+}
+
+.ver1 {
+    color: red;
+}
+
+@keyframes blur {
+    from {
+        color: red;
+    }
+    to {
+        color: #B2BABB;
+    }
+}

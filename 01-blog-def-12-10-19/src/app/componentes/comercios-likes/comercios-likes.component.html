@@ -1,0 +1,49 @@
+<app-navbar>
+
+</app-navbar>
+
+
+
+
+<div class=" contenedor card bordes mb-3">
+    <h5>
+        <div class="card-header card-title cabecera">Likes de comercios</div>
+    </h5>
+
+    <div class="card-body ">
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Comercio</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Likes</th>
+                    <th scope="col">Comentarios</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let comercio of comercios">
+                    <td>{{comercio.id}}</td>
+                    <td>{{comercio.nombre}}</td>
+                    <td>{{comercio.createAt}}</td>
+                    <td>{{comercio.likes}}</td>
+                    <td><a [routerLink]="['/comentarios', comercio.id]">ver comentarios</a></td>
+                    <td> <button class="btn btn-rounded boton">Editar comercio</button>
+                    </td>
+                    <td> <button class="btn btn-rounded btn-danger">Eliminar comercio</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
+    </div>
+</div>
