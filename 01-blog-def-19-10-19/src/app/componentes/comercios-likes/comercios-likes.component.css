@@ -1,0 +1,26 @@
+.boton {
+    background: #00004d;
+    color: white
+}
+
+.boton:hover {
+    color: white;
+    background: #1d1936;
+}
+
+.bordes {
+    border: 1px solid #1d1936;
+}
+
+a {
+    color: #00004d;
+    font-style: italic;
+}
+
+th {
+    text-align: center;
+}
+
+.cabecera {
+    color: #1d1936;
+}

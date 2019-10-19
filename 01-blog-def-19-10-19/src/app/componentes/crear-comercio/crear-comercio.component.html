@@ -1,0 +1,268 @@
+<app-navbar></app-navbar>
+<div class="row" *ngIf="!visible">
+    <div class="col-lg-12">
+        <div class="comment-form-wrap pt-5 comercio">
+
+            <h3 *ngIf="visible ==false && !comercio.resumen" class="mb-5"><span>Crear un comercio</span></h3>
+            <h3 *ngIf="comercio.nombre && comercio.resumen" class="mb-5"><small>Editar: </small> <span>{{comercio.nombre}}</span></h3>
+            <form #comercioForm="ngForm" class="p-5 background">
+
+
+
+                <div class="form-group">
+                    <label for="nombre">Nombre comercio</label>
+                    <input type="text" class="form-control" #nombre="ngModel" id="nombre" [(ngModel)]="comercio.nombre" name="nombre" required minlength="3vb" placeholder="nombre comercio">
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div *ngIf="nombre.errors.required ">
+                            Nombre de comercio es requerido
+                        </div>
+
+                        <div *ngIf="nombre.errors.minlength ">
+                            Nombre de comercio debe tener al menos 3 caracteres
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="form-group">
+                    <label for="actividad">Actividad</label>
+                    <input type="text" class="form-control" id="actividad" #actividad="ngModel" [(ngModel)]="comercio.actividad" required minlength="5" name="actividad" placeholder="actividad">
+
+                    <div class="alert alert-danger" *ngIf="actividad.invalid && (actividad.dirty || actividad.touched)">
+                        <div *ngIf="actividad.errors.required ">
+                            Actividad de comercio es requerido
+                        </div>
+
+                        <div *ngIf="actividad.errors.minlength ">
+                            Actividad de comercio debe tener al menos 3 caracteres
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="aparicion">Fecha de inicio de actividad</label>
+                    <input type="text" class="form-control" id="aparicion" [(ngModel)]="comercio.aparicion" name="aparicion" placeholder="fecha de inicio de actividad">
+
+
+
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" #direccion="ngModel" [(ngModel)]="comercio.direccion" name="direccion" placeholder="dirección" required minlength="5">
+
+                    <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                        <div *ngIf="direccion.errors.required ">
+                            Direccion de comercio es requerido
+                        </div>
+
+                        <div *ngIf="direccion.errors.minlength ">
+                            Direccion de comercio debe tener al menos 5 caracteres
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="cp">cp</label>
+                    <input type="text" id="cp" #cp="ngModel" [(ngModel)]="comercio.cp" name="cp" class="form-control" placeholder="cp" required minlength="5">
+                    <div class="alert alert-danger" *ngIf="cp.invalid && (cp.dirty || cp.touched)">
+                        <div *ngIf="cp.errors.required ">
+                            CP de comercio es requerido
+                        </div>
+
+                        <div *ngIf="cp.errors.minlength ">
+                            CP de comercio debe tener al menos 5 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="facebook">Facebook </label>
+                    <input type="text" class="form-control" id="facebook" #facebook="ngModel" [(ngModel)]="comercio.facebook" name="facebook" required minlength="15" placeholder="facebook">
+                    <div class="alert alert-danger" *ngIf="facebook.invalid && (facebook.dirty || facebook.touched)">
+                        <div *ngIf="facebook.errors.required ">
+                            Facebook de comercio es requerido
+                        </div>
+
+                        <div *ngIf="facebook.errors.minlength ">
+                            Facebook de comercio debe tener al menos 10 caracteres
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="form-group">
+                    <label for="latitud">Coordenadas : Latitud </label>
+                    <input type="text" class="form-control" id="latitud" #latitud="ngModel" [(ngModel)]="comercio.lat" name="latitud" required minlength="10" placeholder="latitud">
+                    <div class="alert alert-danger" *ngIf="latitud.invalid && (latitud.dirty || latitud.touched)">
+                        <div *ngIf="latitud.errors.required ">
+                            Latitud de comercio es requerido
+                        </div>
+
+                        <div *ngIf="latitud.errors.minlength ">
+                            Latitud de comercio debe tener al menos 10 caracteres
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="longitud">Coordenadas : Longitud </label>
+                    <input type="text" class="form-control" id="longitud" #longitud="ngModel" [(ngModel)]="comercio.lng" name="longitud" required minlength="10" placeholder="longitud">
+                    <div class="alert alert-danger" *ngIf="longitud.invalid && (latitud.dirty || longitud.touched)">
+                        <div *ngIf="longitud.errors.required ">
+                            Longitud de comercio es requerido
+                        </div>
+
+                        <div *ngIf="longitud.errors.minlength ">
+                            Longitud de comercio debe tener al menos 10 caracteres
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono </label>
+                    <input type="text" class="form-control" #telefono="ngModel" id="telefono" [(ngModel)]="comercio.telefono" #telefono="ngModel" name="telefono" required minlength="9" placeholder="teléfono">
+
+                    <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                        <div *ngIf="telefono.errors.required ">
+                            Teléfono de comercio es requerido
+                        </div>
+
+                        <div *ngIf="telefono.errors.minlength ">
+                            Teléfono de comercio debe tener al menos 9 caracteres
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción corta</label>
+                    <textarea id="descripcion" [(ngModel)]="comercio.descripcion" #descripcion="ngModel" name="descripcion" cols="30" rows="10" class="form-control" required minlength="20" placeholder="descripción corta"></textarea>
+                    <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        <div *ngIf="descripcion.errors.required ">
+                            Descripción de comercio es requerido
+                        </div>
+
+                        <div *ngIf="descripcion.errors.minlength ">
+                            Descripción de comercio debe tener al menos 20 caracteres
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="resumen">Resumen</label>
+                    <textarea id="resumen" [(ngModel)]="comercio.resumen" #resumen="ngModel" name="resumen" cols="30" rows="10" class="form-control" placeholder="resumen" required minlength="50"></textarea>
+                </div>
+                <div class="alert alert-danger" *ngIf="resumen.invalid && (resumen.dirty || resumen.touched)">
+                    <div *ngIf="resumen.errors.required ">
+                        Descripción de comercio es requerido
+                    </div>
+
+                    <div *ngIf="resumen.errors.minlength ">
+                        Descripción de comercio debe tener al menos 50 caracteres
+                    </div>
+                </div>
+
+                <button class="btn btn-info " type="button" role="button" (click)='create()' *ngIf="!comercio.id else mostrar">Crear</button>
+                <ng-template #mostrar>
+
+                    <button class="btn btn-info" role="button" (click)='update()'>Editar</button>
+
+
+                </ng-template>
+                <!--  [disabled]="!comercioForm.valid"<p *ngIf="comercioCreado==false"> <button (click)="create();">continuarcrear</button></p>
+                <p *ngIf="comercioCreado==true"> <button (click)="update();">continuareditar</button></p>-->
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row rowfotos  " *ngIf="visible">
+    <div class="col-lg-12 ">
+        <div class="comment-form-wrap pt-5   fotos">
+
+            <form class="p-5 bg-light" #fotosForm="ngForm">
+
+                <h4 *ngIf="comercio.img!=null">
+                    Seleccione las fotos que quiere cambiar en el comercio :
+                    <p id="comercio">{{comercio.nombre}}</p>
+                </h4>
+                <h4 *ngIf="comercio.img==null">
+                    Seleccione las fotos que incluir en el comercio :
+                    <p id="comercio"> {{comercio.nombre}}</p>
+                </h4>
+
+                <div class="form-group" *ngIf="updateFoto==false">
+                    <label for="img">img 1 </label>
+                    <div class="custom-file">
+                        <p *ngIf="!comercio.img"> <input (change)="seleccionarFoto($event)" id="img" name="img" type="file"></p>
+
+                        <p *ngIf="comercio.img"> <input (change)="seleccionarUnaFoto($event,1) " type="file" id="img1">
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group" *ngIf="updateFoto==false">
+                    <label for="img1">img 2 </label>
+                    <div class="custom-file">
+                        <p *ngIf="!comercio.img">
+                            <input (change)="seleccionarFoto1($event)" type="file" id="img1"></p>
+                        <p *ngIf="comercio.img"> <input (change)="seleccionarUnaFoto($event,2)" type="file" id="img1">
+
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="form-group" *ngIf="updateFoto==false">
+                    <label for="img2">img 3 </label>
+                    <div class="custom-file">
+                        <p *ngIf="!comercio.img">
+                            <input name="img2" id="img2" (change)="seleccionarFoto2($event)" type="file" id="img2"></p>
+                        <p *ngIf="comercio.img"> <input (change)="seleccionarUnaFoto($event,3)" type="file" id="img1">
+
+                        </p>
+
+                    </div>
+
+                </div>
+                <p> <button class="btn btn-info " type="button" role="button" (click)="subirFoto(); " *ngIf=" comercio.img==null&&archivo&&archivo1&&archivo2">Guardar comercio</button></p>
+
+                <p> <button class="btn btn-info " type="button" role="button" (click)="cancelar(); ">Cancelar
+                    </button></p>
+                <p> * pulse cancelar si no desea cambiar las fotos
+                </p>
+                <div class="container" *ngIf="comercio.img && comercio.nombre">
+                    <h4 *ngIf="updateFoto==true"><span><small>Se ha creado el comercio: </small>{{comercio.nombre}}</span></h4>
+                    <h4 *ngIf="foto==false"><span><small>Las fotos del comercio:  </small> {{comercio.nombre}}<small>  son las siguientes:</small></span></h4>
+
+                    <div class="row lista">
+                        <div class="col-lg-4 col-sm-4">Imagen 1
+                            <img class="img-fluid" src="http://localhost:8080/api/descargas/img/{{comercio.img}}"></div>
+                        <div class="col-lg-4 col-sm-4">Imagen 2
+
+                            <img class="img-fluid" src="http://localhost:8080/api/descargas/img/{{comercio.img1}}">
+                        </div>
+                        <div class="col-lg-4 col-sm-4">Imagen 3
+
+                            <img class="img-fluid" src="http://localhost:8080/api/descargas/img/{{comercio.img2}}">
+                        </div>
+                    </div>
+
+                </div>
+
+                <p> <button *ngIf="  comercio.img!=null " class="btn btn-dark " type="button" role="button" (click)="nuevoComercio(); ">Nuevo Comercio
+                                    </button></p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

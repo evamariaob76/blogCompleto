@@ -1,0 +1,72 @@
+.form-group>label {
+    font-weight: bold;
+}
+
+.background,
+.fotos {
+    background: white;
+}
+
+.row {
+    padding-top: 80px;
+}
+
+h3 {
+    text-align: center;
+}
+
+input,
+textarea,
+.img {
+    font-style: italic;
+    font-size: 14px;
+}
+
+small {
+    color: black;
+    font-weight: normal;
+}
+
+h4,
+.lista {
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#nuevo {
+    padding-top: 20px
+}
+
+.comercio {
+    background: #A5BACF;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.rowfotos {
+    padding-top: 40px;
+}
+
+span {
+    color: #1D1936;
+}
+
+.btn-dark {
+    margin-top: 20px;
+}
+
+#comercio {
+    color: #0C3B69;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+.container {
+    padding-top: 30px;
+    ;
+}

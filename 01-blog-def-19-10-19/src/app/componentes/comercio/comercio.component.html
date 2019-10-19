@@ -1,0 +1,72 @@
+<div class="container-fluid wrapper">
+    <div class="row fotoPrincipal">
+        <div class="col-lg-12">
+
+            <img alt="Image placeholder " class="img-fluid ">
+        </div>
+    </div>
+
+
+    <div class="row justify-content  social" (click)="corazones()">
+        <div class="col-md-6 col-lg-2">
+            <small class=" text-muted ">{{comercio.createAt | date: 'mediumDate'}}</small>
+        </div>
+        <div class="col-md-6 col-lg-4 social ">
+            <a href='{{comercio.facebook}}' class="thumbnail ">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="javascript:void(0);" (click)="addLike(comercio.id);">
+                <i id="corazon" class="far fa-heart"></i>{{comercio.likes}}
+            </a>
+
+
+            <a [routerLink]="[ '/comercios', comercio.id] " class="thumbnail ">
+                <i class="far fa-comment"></i>{{comentariolength}}
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="row ">
+        <div class="col-lg-12 ">
+
+            <h1 class="mb-4 ">{{comercio.nombre}}</h1>
+            <div class="post-content-body ">
+                <p>{{comercio.resumen}}</p>
+                <p>{{comercio.resumen}}</p>
+                <div class="row mb-12 ">
+                    <div class="col-md-12 mb-4 ">
+                        <img src="http://localhost:8080/api/descargas/img/{{comercio.img}}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6 mb-4 ">
+                        <img src="http://localhost:8080/api/descargas/img/{{comercio.img1}}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6 mb-4 ">
+                        <img src="http://localhost:8080/api/descargas/img/{{comercio.img2}}" class="card-img-top" alt="...">
+                    </div>
+                </div>
+                <p>{{comercio.resumen}}}</p>
+                <div class="card-footer social">
+                    <div class="row social">
+
+                        <button type="button " (click)="comoLlegar(); " class="btn btn-light btn-sm form-control mr-sm-2 p-2 text-dark " style="width:100%;margin: auto; font-size: 15px ">Como llegar ...</button>
+                    </div>
+                </div>
+                <div class="pt-5 ">
+                    <p>Categories: <a href="# ">Food</a>, <a href="# ">Travel</a> Tags: <a href="# ">#manila</a>, <a href="# ">#asia</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

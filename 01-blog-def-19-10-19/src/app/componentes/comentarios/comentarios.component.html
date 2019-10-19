@@ -1,0 +1,160 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="comment-form-wrap pt-5">
+            <h3 class="mb-5">Deja un comentario</h3>
+            <form class="p-5 bg-light">
+                <div class="form-group">
+                    <label for="name">Nombre *</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="comentario.nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="comentario.email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="comentario" [(ngModel)]="comentario.comentario" name="comentario" cols="30" rows="10" class="form-control"></textarea>
+
+                </div>
+                <div class="form-group">
+                    <p> <button (click)="create();">Publicar comentario</button></p>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="row  " id="mostrar">
+    <div class="col-md-12 col-lg-12 main-content">
+        <div class="div">
+            <div class="pt-12">
+                <h3 class="mb-12"> Comentarios</h3>
+                <hr>
+                <h5 class="mb-12" *ngIf="noExistenComentarios===true"> No existen comentarios </h5>
+                <form>
+
+                    <ul class="comment-list" *ngFor="let comentario of comercio.comentarios; let i=index">
+
+                        <li class="comment" id="comment" *ngIf="i<4  &&comprobar==false">
+                            <div id="comentariosInicio">
+                                <div class="vcard ">
+                                    <img src="../../../assets/img/madrid/1madrid.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>{{comentario.nombre}}</h3>
+                                    <div class="meta">{{comentario.fecha |date:'fullDate'}} </div>
+                                    <p>{{comentario.comentario}}</p>
+
+
+                                    <button (click)="eliminar(comentario.id) ">eliminar</button>
+
+                                    <button id="contestar{{comentario.id}}" *ngIf="comentario.contestacion==null" (click)="cambiar(comentario.id) ">contestar</button>
+                                    <div id="contestacion{{comentario.id}}" class="ocultar">
+                                        <textarea name="contestacion " cols="60 " rows="4 " [(ngModel)]="coment" #ctrl="ngModel"></textarea>
+                                        <button id="guardar" (click)="update(comentario.id) ">guardar</button>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="contestacion " *ngIf="comentario.contestacion!=null && i<4">
+                                <div id=" comentariosInicio ">
+                                    <div class="vcard ">
+                                        <img src="../../../assets//img//personal/imagen.jpg" alt="Image placeholder ">
+                                    </div>
+                                    <div class="comment-body ">
+                                        <h3>Amind dice... </h3>
+                                        <div class="meta ">{{comentario.fecha |date:'fullDate'}} </div>
+                                        <p>{{comentario.contestacion}}</p>
+
+
+                                        <button id="contestarAdmin{{comentario.id}}" (click)="cambiarAdmin(comentario.id) ">editar</button>
+                                        <button id="eliminar" (click)="eliminarContestacion(comentario.id) ">eliminar</button>
+
+                                        <div id="contestacionAmin{{comentario.id}}" class="ocultar">
+                                            <textarea name="contestacionAdmin " cols="60 " rows="4 " [(ngModel)]="coment" #ctrl="ngModel"></textarea>
+                                            <button id="guardar" (click)="update(comentario.id) ">guardar</button>
+                                            <button id="cancelar" (click)="cancelar(comentario.id) ">cancelar</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </li>
+
+                        <li class="comment" id="comment" *ngIf="comprobar ==true">
+                            <div id="comentariosInicio">
+                                <div class="vcard ">
+                                    <img src="../../../assets/img/madrid/1madrid.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>{{comentario.nombre}}</h3>
+                                    <div class="meta">{{comentario.fecha |date:'fullDate'}} </div>
+                                    <p>{{comentario.comentario}}</p>
+
+
+                                    <button (click)="eliminar(comentario.id) ">eliminar</button>
+
+                                    <button id="contestar{{comentario.id}}" *ngIf="comentario.contestacion==null" (click)="cambiar(comentario.id) ">contestar</button>
+                                    <div id="contestacion{{comentario.id}}" class="ocultar">
+                                        <textarea name="contestacion " cols="60 " rows="4 " [(ngModel)]="coment" #ctrl="ngModel"></textarea>
+                                        <button id="guardar" (click)="update(comentario.id) ">guardar</button>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="contestacion " *ngIf="comentario.contestacion!=null  && comprobar ==true">
+                                <div id=" comentariosInicio ">
+                                    <div class="vcard ">
+                                        <img src="../../../assets//img/personal/imagen.jpg" alt="Image Placeholder" class="img-fluid">
+                                    </div>
+                                    <div class="comment-body ">
+                                        <h3>Amind dice... </h3>
+                                        <div class="meta ">{{comentario.fecha |date:'fullDate'}} </div>
+                                        <p>{{comentario.contestacion}}</p>
+
+
+                                        <button id="contestarAdmin{{comentario.id}}" (click)="cambiarAdmin(comentario.id) ">editar</button>
+                                        <button id="eliminar" (click)="eliminarContestacion(comentario.id) ">eliminar</button>
+
+                                        <div id="contestacionAmin{{comentario.id}}" class="ocultar">
+                                            <textarea name="contestacionAdmin " cols="60 " rows="4 " [(ngModel)]="coment" #ctrl="ngModel"></textarea>
+                                            <button id="guardar" (click)="update(comentario.id) ">guardar</button>
+                                            <button id="cancelar" (click)="cancelar(comentario.id) ">cancelar</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </li>
+
+                    </ul>
+                </form>
+            </div>
+            <button (click)="mostrar() " *ngIf="comprobar==false && myClass==false ">ver todos los comentarios...</button>
+            <button (click)="mostrar() " *ngIf="comprobar==true">mostrar menos comentarios...</button>
+
+        </div>
+    </div>
+</div>
