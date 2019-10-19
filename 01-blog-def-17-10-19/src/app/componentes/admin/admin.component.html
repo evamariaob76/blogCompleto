@@ -1,0 +1,38 @@
+<app-navbar>
+
+</app-navbar>
+
+
+<div class="contenedor" *ngIf="authService.isAuthenticated()==true">
+    <h3> Bienvenido :<small> {{authService.usuario.username}}</small></h3>
+    <h4> ¿Que quieres hacer?</h4>
+
+    <div class="row">
+        <div class="col-md-2 col-lg-3 text-center">
+            <button type="button" class="btn btn-rounded boton" (click)="VerSuscriptores();">Ver suscriptores</button></div>
+
+
+        <div class="col-md-2 col-lg-3 text-center">
+            <button type="button" class="btn btn-rounded boton" (click)="VerComercios();"> Ver comercios</button></div>
+        <div class="col-md-2 col-lg-3 text-center">
+            <button type="button" class="btn btn-rounded boton" [routerLink]="['/crear/comercios']"> Crear Comercio</button></div>
+        <div class="col-md-2 col-lg-3  text-center">
+            <button type="button" class="btn btn-rounded boton" (click)="cerrarSesion();"> Cerrar sesion</button></div>
+    </div>
+
+
+
+
+    <div class="graficoBarra">
+        <div style="display: block" id="grafico">
+            <canvas id="myChart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+        </div>
+    </div>
+
+
+    <div class="chart">
+        <canvas baseChart width="500" height="500" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+        </canvas>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="link">
+    <h1>
+        <p class="animated fadeIn fast">
+    </h1>
+    <blockquote class="blockquote text-center">
+        <p class="mb-0">{{comercio.nombre}}</p>
+        <footer class="blockquote-footer">hola{{comercio.direccion}} <cite title="Source Title">{{comercio.cp}}</cite></footer>
+    </blockquote>
+
+    <!-- this creates a google map on the page with the given lat/lng from -->
+    <!-- the component as the initial center of the map: -->
+    <div class="map">
+        <agm-map [latitude]="comercio.lat" [longitude]="comercio.lng" [zoom]="20">
+            <agm-marker [latitude]="comercio.lat" [longitude]="comercio.lng">
+
+
+
+            </agm-marker>
+        </agm-map>
+    </div>
+    <a [routerLink]="['./comercio'] " class="btn btn-outline-danger btn-block">Regresar</a>
+
+</div>

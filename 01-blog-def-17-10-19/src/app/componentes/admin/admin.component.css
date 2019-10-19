@@ -1,0 +1,32 @@
+.boton {
+    background: #00004d;
+    color: white
+}
+
+.boton:hover {
+    color: white;
+    background: #1d1936;
+}
+
+* {
+    background: white;
+}
+
+h3 {
+    text-align: center;
+}
+
+.row {
+    width: 100%;
+    margin: 0%;
+}
+
+.contenedor {
+    margin-top: 5%;
+    padding-top: 70px;
+}
+
+.graficoBarra,
+div .row {
+    padding-top: 5%;
+}
